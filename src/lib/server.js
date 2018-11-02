@@ -20,7 +20,10 @@ const app = express();
 //-------------------------------------------------------------------------------------------------
 
 // middleware
-app.use(cors());
+app.use(cors({
+    origin: process.env.CORS_ORIGINS.split(' '),
+    credentials: true,
+}));
 app.use(loggerMiddleware);
 app.use(authAccountRoutes);
 app.use(armRoutes);
