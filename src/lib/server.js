@@ -21,7 +21,7 @@ const app = express();
 
 // middleware
 app.use(cors({
-    origin: process.env.CORS_ORIGINS.split(' '),
+    // origin: process.env.CORS_ORIGINS.split(' '),
     credentials: true,
 }));
 app.use(loggerMiddleware);
