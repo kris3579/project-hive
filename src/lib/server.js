@@ -4,6 +4,7 @@
 
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const logger = require('./logger');
 const loggerMiddleware = require('./logger-middleware');
 const errorMiddleware = require('./error-middleware');
@@ -19,6 +20,10 @@ const app = express();
 //-------------------------------------------------------------------------------------------------
 
 // middleware
+app.use(cors({
+    // origin: process.env.CORS_ORIGINS.split(' '),
+    credentials: true,
+}));
 app.use(loggerMiddleware);
 app.use(authAccountRoutes);
 app.use(armRoutes);
